@@ -1,5 +1,5 @@
 {
-  "name": "vuex-module-decorators",
+  "name": "@leam/vuex-module-decorators",
   "version": "0.9.7",
   "description": "Decorators to make class-like Vuex modules",
   "main": "dist/cjs/index.js",
@@ -22,6 +22,9 @@
     "docs:serve": "vuepress dev docs",
     "lint": "tslint -p tsconfig.json",
     "lint:fix": "tslint -p tsconfig.json --fix"
+  },
+  "publishConfig": {
+    "registry": "https://node-packages.leam.ae"
   },
   "repository": {
     "type": "git",
