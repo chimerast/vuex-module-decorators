@@ -8,7 +8,7 @@ import {
   ActionContext
 } from 'vuex'
 
-export class VuexModule<S = ThisType<S>, R = any> implements Mod<S, R> {
+export class VuexModule<S = ThisType<any>, R = any> implements Mod<S, R> {
   /*
    * To use with `extends Class` syntax along with decorators
    */
