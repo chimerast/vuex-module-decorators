@@ -81,9 +81,11 @@ function moduleDecoratorFactory<S>(moduleOptions: ModuleOptions) {
       if (!modOpt.name) {
         throw new Error('Name of module not provided in decorator options')
       }
+
       modOpt.store.registerModule(
         modOpt.name, // TODO: Handle nested modules too in future
-        module
+        module,
+        { preserveState: modOpt.preserveState || false }
       )
     }
     return constructor

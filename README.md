@@ -276,3 +276,29 @@ class MyModule extends VuexModule {
   }
 }
 ```
+
+If you would like to preserve the state e.g when loading in the state from [vuex-persist](https://www.npmjs.com/package/vuex-persist)
+
+
+```diff
+...
+
+-- @Module({ dynamic: true, store: store, name: 'mm' })
+++ @Module({ dynamic: true, store: store, name: 'mm', preserveState: true })
+class MyModule extends VuexModule {
+
+...
+```
+
+Or when it doesn't have a initial state and you load the state from the localStorage
+
+
+```diff
+...
+
+-- @Module({ dynamic: true, store: store, name: 'mm' })
+++ @Module({ dynamic: true, store: store, name: 'mm', preserveState: localStorage.getItem('vuex') !== null })
+class MyModule extends VuexModule {
+
+...
+```
