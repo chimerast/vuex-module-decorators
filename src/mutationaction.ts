@@ -5,9 +5,10 @@ import { addPropertiesToObject } from './helpers'
 export interface MutationActionParams<M> {
   mutate?: (keyof Partial<M>)[]
   rawError?: boolean
+  root?: boolean
 }
 
-function mutationActionDecoratorFactory<T>(params: MutationActionParams<T>) {
+function mutationActionDecoratorFactory<T extends Object>(params: MutationActionParams<T>) {
   return function(
     target: T,
     key: string | symbol,
@@ -68,7 +69,7 @@ function mutationActionDecoratorFactory<T>(params: MutationActionParams<T>) {
         }
       }
     }
-    module.actions[key as string] = action
+    module.actions[key as string] = params.root ? { root: true, handler: action } : action
     module.mutations[key as string] = mutation
   }
 }
